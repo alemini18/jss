@@ -3,17 +3,25 @@
 #include "minhash.hpp"
 using namespace std;
 
-
-
-
-
 int main(){
-
-  Sketch sk;
-  Set a(&sk);
-  Set b(&sk);
-  for(int i=0;i<100;i++)a.insert(i);
-  for(int i=0;i<50;i++)b.insert(i);
-  cout<<compare(a,b)<<endl;
+  srand(time(0));
+  Hash h;
+  Set a(&h);
+  Set b(&h);
+  set<int> aa,bb;
+  for(int i=0;i<100;i++){
+    int p=rand()%50;
+    aa.insert(p);
+    a.insert(p);
+  }
+  for(int i=0;i<100;i++){
+    int p=rand()%50;
+    bb.insert(p);
+    b.insert(p);
+  }
+  cout<<(double)compare(a,b)/(double)K<<endl;
+  int cnt=0;
+  for(int x:aa)cnt+=bb.count(x);
+  cout<<cnt/(double)aa.size()<<endl;
 
 }
