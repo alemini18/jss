@@ -35,3 +35,5 @@ minhash
 *.back
 test
 token
+hash_table
+lsh_minhash
